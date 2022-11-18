@@ -13,6 +13,12 @@ class TestFunctionUtilsTest {
     }
 
     @Test
+    fun `fib returns 55 for n=11`() {
+        val result = TestFunctionUtils.fib(11)
+        assertThat(result).isEqualTo(55)
+    }
+
+    @Test
     fun `fib returns 0 for n=0`() {
         val result = TestFunctionUtils.fib(0)
         assertThat(result).isEqualTo(0)
@@ -39,6 +45,12 @@ class TestFunctionUtilsTest {
     @Test
     fun `checkBraces returns false for incorrect input`() {
         val result = TestFunctionUtils.checkBraces("((a+b*(a-b))")
+        assertThat(result).isFalse()
+    }
+
+    @Test
+    fun `checkBraces returns false for not balanced paranthesis input`() {
+        val result = TestFunctionUtils.checkBraces(")(a+b)(")
         assertThat(result).isFalse()
     }
 
